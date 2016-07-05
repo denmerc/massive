@@ -1,0 +1,1 @@
+select * from "PX_Main"."User" where UserId=$1;
