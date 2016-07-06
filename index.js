@@ -176,13 +176,13 @@ http.createServer(app).listen(8080);
   var newAnnotation = {
       title: faker.random.arrayElement(["YB380A", "XV23WH", "XV22", "ZP8306B", "ZP8305B", "XV23WH", "ZP8300S", "ZP830", "ZP09560","ZP06180","ZP06175","Z611000", "Y011AXX", "Y011AXL", "Y011ASM", "Y011AMD", "XV22", "XV22WH", "XP82TL", "XP81PL", "XP51FN", "XP14RD", "XP12RD", "XP13RD", "XP11SW"]) + "-" + faker.lorem.sentence(),
       message: faker.lorem.sentence() + faker.random.arrayElement(["YB380A", "XV23WH", "XV22", "ZP8306B", "ZP8305B", "XV23WH", "ZP8300S", "ZP830", "ZP09560","ZP06180","ZP06175","Z611000", "Y011AXX", "Y011AXL", "Y011ASM", "Y011AMD", "XV22", "XV22WH", "XP82TL", "XP81PL", "XP51FN", "XP14RD", "XP12RD", "XP13RD", "XP11SW"]) + faker.lorem.sentence() + faker.lorem.sentence() + faker.lorem.sentence() + faker.lorem.sentence() ,
-      annotater: "pxpx",
+      annotater: "demo-kits",
       entitytype: faker.random.arrayElement(["pricing"]),
       // entitytype: faker.random.arrayElement(["analytic", "price routine", "promotion", "kit"]),
       entityid: faker.random.arrayElement([1]),
       module: faker.random.arrayElement(["planning"]),
       // feature: faker.random.arrayElement(["analytics", "pricing-everyday", "pricing-promotions", "pricing-kits"]),
-      feature: faker.random.arrayElement(["PlanningEverydayPricing"]),
+      feature: faker.random.arrayElement(["PlanningPromotionPricing"]),
         /*
         None,
         PlanningHome
@@ -202,7 +202,7 @@ http.createServer(app).listen(8080);
         AdminETLForeignKeyErrors
         */
       // step: faker.random.arrayElement(["identity", "filters", "pricelists", "rules", "keydriver", "influencers", "results", "impactanalysis", "approval"]),
-      step: faker.random.arrayElement(["PlanningPricingIdentity"]),
+      step: faker.random.arrayElement(["PlanningPricingResults"]),
       
       /*
         PlanningPricingSearch,
@@ -224,9 +224,9 @@ http.createServer(app).listen(8080);
   };
 
 
-  // db.saveDoc("annotations", newAnnotation, function (err,doc) {
-  //   console.log(doc);
-  // });
+  db.saveDoc("annotations", newAnnotation, function (err,doc) {
+    console.log(doc);
+  });
 
 // db.createSchema('search', function (err, res) {
 //   console.log(err);
