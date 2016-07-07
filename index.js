@@ -188,7 +188,7 @@ http.createServer(app).listen(8080);
       entityid: faker.random.arrayElement([1]),
       module: faker.random.arrayElement(["planning"]),
       // feature: faker.random.arrayElement(["analytics", "pricing-everyday", "pricing-promotions", "pricing-kits"]),
-      feature: faker.random.arrayElement(["PlanningKitPricing"]),
+      feature: faker.random.arrayElement(["PlanningPromotionPricing"]),
         /*
         None,
         PlanningHome
@@ -208,7 +208,7 @@ http.createServer(app).listen(8080);
         AdminETLForeignKeyErrors
         */
       // step: faker.random.arrayElement(["identity", "filters", "pricelists", "rules", "keydriver", "influencers", "results", "impactanalysis", "approval"]),
-      step: faker.random.arrayElement(["PlanningPricingIdentity"]),
+      step: faker.random.arrayElement(["PlanningPricingResults"]),
       
       /*
         PlanningPricingSearch,
