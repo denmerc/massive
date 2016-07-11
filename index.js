@@ -3,7 +3,6 @@ var app = express();
 var http = require('http');
 var massive = require("massive");
 var faker = require("faker");
-
 /*
 sample json post
 {
@@ -55,6 +54,21 @@ app.get('/notes', function (req, res) {
      res.json(docs);
   });
   // res.send(results);
+});
+
+
+// app.delete('/notes/:id', function (req, res) {
+//   db.doggies.destroy({id : req.params.id}, function(err,res){
+//       console.log(err);
+//   });
+// });
+
+app.delete('/notes', jsonParser, function (req, res) {
+  db.annotations.destroy({id: req.body.id}, function(err,res){
+      console.log(err);
+      
+  });
+  res.send(200, 'Successfully deleted note.');
 });
 
 app.post('/notes',  jsonParser, function (req, res) {
@@ -182,13 +196,13 @@ http.createServer(app).listen(8080);
   var newAnnotation = {
       title: faker.random.arrayElement(["YB380A", "XV23WH", "XV22", "ZP8306B", "ZP8305B", "XV23WH", "ZP8300S", "ZP830", "ZP09560","ZP06180","ZP06175","Z611000", "Y011AXX", "Y011AXL", "Y011ASM", "Y011AMD", "XV22", "XV22WH", "XP82TL", "XP81PL", "XP51FN", "XP14RD", "XP12RD", "XP13RD", "XP11SW"]) + "-" + faker.lorem.sentence(),
       message: faker.lorem.sentence() + faker.random.arrayElement(["YB380A", "XV23WH", "XV22", "ZP8306B", "ZP8305B", "XV23WH", "ZP8300S", "ZP830", "ZP09560","ZP06180","ZP06175","Z611000", "Y011AXX", "Y011AXL", "Y011ASM", "Y011AMD", "XV22", "XV22WH", "XP82TL", "XP81PL", "XP51FN", "XP14RD", "XP12RD", "XP13RD", "XP11SW"]) + faker.lorem.sentence() + faker.lorem.sentence() + faker.lorem.sentence() + faker.lorem.sentence() ,
-      annotater: "demo-kits",
-      entitytype: faker.random.arrayElement(["pricing"]),
+      annotater: "dmac",
+      entitytype: faker.random.arrayElement(["analytic"]),
       // entitytype: faker.random.arrayElement(["analytic", "price routine", "promotion", "kit"]),
       entityid: faker.random.arrayElement([1]),
       module: faker.random.arrayElement(["planning"]),
       // feature: faker.random.arrayElement(["analytics", "pricing-everyday", "pricing-promotions", "pricing-kits"]),
-      feature: faker.random.arrayElement(["PlanningPromotionPricing"]),
+      feature: faker.random.arrayElement(["PlanningAnalytics"]),
         /*
         None,
         PlanningHome
@@ -208,7 +222,7 @@ http.createServer(app).listen(8080);
         AdminETLForeignKeyErrors
         */
       // step: faker.random.arrayElement(["identity", "filters", "pricelists", "rules", "keydriver", "influencers", "results", "impactanalysis", "approval"]),
-      step: faker.random.arrayElement(["PlanningPricingResults"]),
+      step: faker.random.arrayElement(["PlanningAnalyticsIdentity"]),
       
       /*
         PlanningPricingSearch,
@@ -224,7 +238,7 @@ http.createServer(app).listen(8080);
         PlanningKitPricingAdjustments
       */
 
-      // , "PlanningAnalyticsFilters", "PlanningAnalyticsPriceLists", "PlanningAnalyticsValueDrivers", "PlanningAnalyticsResults"]),
+      //"PlanningAnalyticsIdentity" , "PlanningAnalyticsFilters", "PlanningAnalyticsPriceLists", "PlanningAnalyticsValueDrivers", "PlanningAnalyticsResults"]),
       control: faker.random.arrayElement(["grid", "panel1", "listbox1"]),
       datecreated: faker.date.recent()
   };
