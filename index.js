@@ -3,8 +3,6 @@ var app = express();
 var http = require('http');
 var massive = require("massive");
 var faker = require("faker");
-// var connectionString = "postgres://postgres:Welcome16!@192.168.5.72/postgres";
-var connectionString = "postgres://postgres:postgres@lois-fb.apltest.local/postgres";
 
 /*
 sample json post
