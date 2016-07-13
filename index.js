@@ -3,6 +3,9 @@ var app = express();
 var http = require('http');
 var massive = require("massive");
 var faker = require("faker");
+// var connectionString = "postgres://postgres:Welcome16!@192.168.5.72/postgres";
+var connectionString = "postgres://postgres:postgres@lois-fb.apltest.local/postgres";
+
 /*
 sample json post
 {
@@ -24,7 +27,7 @@ sample json post
 // this will let us get the data from a POST
 var bodyParser = require('body-parser');
 
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json();
 //var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(jsonParser);
 // app.use(bodyParser.json());
@@ -197,12 +200,12 @@ http.createServer(app).listen(8080);
       title: faker.random.arrayElement(["YB380A", "XV23WH", "XV22", "ZP8306B", "ZP8305B", "XV23WH", "ZP8300S", "ZP830", "ZP09560","ZP06180","ZP06175","Z611000", "Y011AXX", "Y011AXL", "Y011ASM", "Y011AMD", "XV22", "XV22WH", "XP82TL", "XP81PL", "XP51FN", "XP14RD", "XP12RD", "XP13RD", "XP11SW"]) + "-" + faker.lorem.sentence(),
       message: faker.lorem.sentence() + faker.random.arrayElement(["YB380A", "XV23WH", "XV22", "ZP8306B", "ZP8305B", "XV23WH", "ZP8300S", "ZP830", "ZP09560","ZP06180","ZP06175","Z611000", "Y011AXX", "Y011AXL", "Y011ASM", "Y011AMD", "XV22", "XV22WH", "XP82TL", "XP81PL", "XP51FN", "XP14RD", "XP12RD", "XP13RD", "XP11SW"]) + faker.lorem.sentence() + faker.lorem.sentence() + faker.lorem.sentence() + faker.lorem.sentence() ,
       annotater: "dmac",
-      entitytype: faker.random.arrayElement(["analytic"]),
+      entitytype: faker.random.arrayElement(["pricing"]),
       // entitytype: faker.random.arrayElement(["analytic", "price routine", "promotion", "kit"]),
       entityid: faker.random.arrayElement([1]),
       module: faker.random.arrayElement(["planning"]),
       // feature: faker.random.arrayElement(["analytics", "pricing-everyday", "pricing-promotions", "pricing-kits"]),
-      feature: faker.random.arrayElement(["PlanningAnalytics"]),
+      feature: faker.random.arrayElement(["PlanningEverydayPricing"]),
         /*
         None,
         PlanningHome
@@ -222,7 +225,7 @@ http.createServer(app).listen(8080);
         AdminETLForeignKeyErrors
         */
       // step: faker.random.arrayElement(["identity", "filters", "pricelists", "rules", "keydriver", "influencers", "results", "impactanalysis", "approval"]),
-      step: faker.random.arrayElement(["PlanningAnalyticsIdentity"]),
+      step: faker.random.arrayElement(["PlanningPricingResults"]),
       
       /*
         PlanningPricingSearch,
